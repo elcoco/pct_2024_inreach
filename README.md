@@ -21,6 +21,11 @@
 
     NOTE2: I was not able to test everything so please let me know if something doesn't work as expected.
 
+## Download
+
+    If you are a git user, you know what to do.
+    If not, you can download this project and GPX files by clicking the "code" button and then press "Download Zip"
+
 ## Process
     
     # Use qmapshack to put tracks in right order and export as gpx
