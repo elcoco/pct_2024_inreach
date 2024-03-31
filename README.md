@@ -14,6 +14,7 @@
     - gpsbabel:  https://www.gpsbabel.org
     - gpxslicer: https://pypi.org/project/gpxslicer
     - viking:    https://github.com/viking-gps/viking
+    - qmapshack: https://github.com/Maproom/qmapshack
 
     NOTE: The files may not show up as exactly 100 miles. This is probably due to the simplifying.
     Since the cutting was done before the simplifying, each file is in reality very close to 100 miles.
@@ -21,12 +22,14 @@
     NOTE2: I was not able to test everything so please let me know if something doesn't work as expected.
 
 ## Process
+    
+    # Use qmapshack to put tracks in right order and export as gpx
 
     # convert gpx to csv and remove duplicate data
     gpsbabel -i gpx -f source.gpx -o csv -F tmp.csv
     cat tmp.csv | uniq > dest.csv
 
-    # convert csv to track
+    # convert csv to single track gpx file
     gpsbabel -i csv -f source.csv -x transform,trk=wpt -x nuketypes,waypoints -o gpx -F dest.gpx
 
     # split gpx into 100 mile tracks
