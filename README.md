@@ -5,7 +5,7 @@
     Unfortunately the garmin inreach mini 2 can only handle 10000 points per gpx file.
     To make this data usable for inreach users I cut the large PCTA data file into separate files
     of 100 miles each.
-    Each file is then simplified to contain only 10000 points.
+    Each file was then simplified to contain only 10000 points.
 
     To create these files I used the original 2024 (march) dataset from the PCTA.
     link: https://www.pcta.org/discover-the-trail/maps/pct-data/
