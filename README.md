@@ -19,3 +19,27 @@
     Since the cutting was done before the simplifying, each file is in reality very close to 100 miles.
 
     NOTE2: I was not able to test everything so please let me know if something doesn't work as expected.
+
+## Process
+
+    # convert gpx to csv and remove duplicate data
+    gpsbabel -i gpx -f source.gpx -o csv -F tmp.csv
+    cat tmp.csv | uniq > dest.csv
+
+    # convert csv to track
+    gpsbabel -i csv -f source.csv -x transform,trk=wpt -x nuketypes,waypoints -o gpx -F dest.gpx
+
+    # split gpx into 100 mile tracks
+    # source: https://pypi.org/project/gpxslicer/
+    gpxslicer -i source.gpx -d 160934 > dest.gpx
+
+    # use viking gpx editor to save every track to file
+
+    # remove conflicting extensions tag in gpx file
+    sed -i '7d' pcta_0000.gpx
+    sed -i '7d' pcta_0100.gpx
+    ...
+
+    # convert every gpx file to 10000 points max
+    mkdir ./inreach
+    for f in *.gpx ; do gpsbabel -i gpx -f "$f" -x simplify,count=10000 -o gpx -F "inreach/$f" ; done
