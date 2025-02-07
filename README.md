@@ -26,7 +26,7 @@
     If you are a git user, you know what to do.
     If not, you can download this project and GPX files by clicking the "code" button and then press "Download Zip"
 
-## Process
+## How I created these files
     
     # Use qmapshack to put tracks in right order and export as gpx
 
